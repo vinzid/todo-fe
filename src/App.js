@@ -29,6 +29,9 @@ function App() {
       getTodo();
     }
   }
+  const showSubtask = id => {
+    setExtend(id === extend ? 0 : id)
+  }
 
   useEffect(() => {
     getTodo();
@@ -43,8 +46,11 @@ function App() {
         {todoList.map(v => (
           <li key={v.id}>
             <dl>
-              <dt><input name={`todo-${v.id}`} type="checkbox" checked={'completed' === v.status} onChange={updateTodo} />{v.title}</dt>
-              {extend === v.id ? <dd><Subtask /></dd> : null}
+              <dt onClick={e => 'INPUT' !== e.target.tagName && showSubtask(v.id)}>
+                <input name={`todo-${v.id}`} type="checkbox" checked={'completed' === v.status} onChange={updateTodo} />
+                <label>{v.title} - <span>{v.completed || 0} of {v.subtasks ? v.subtasks.length : 0} completed</span></label>
+              </dt>
+              {extend === v.id ? <dd><Subtask todo_id={v.id} subtasks={v.subtasks} getTodo={getTodo} be={be} /></dd> : null}
             </dl>
           </li>
         ))}
