@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import styles from './index.module.scss'
 
 function Subtask(props) {
   const [message, setMessage] = useState({});
@@ -29,6 +30,7 @@ function Subtask(props) {
         type: 'success',
         content: 'Add success'
       });
+      title.current.value = '';
       setTimeout(() => {
         setMessage({});
       }, 1000);
@@ -59,7 +61,7 @@ function Subtask(props) {
   }
 
   return (
-    <div>
+    <div className={styles.subtask}>
       {props.subtasks ? (
         <ol>
           {props.subtasks.map(v => (

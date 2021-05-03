@@ -1,0 +1,30 @@
+.subtask {
+  ol {
+    li {
+      padding: 12px 25px;
+      border-bottom: 1px solid #ddd;
+      font-size: 16px;
+      &:hover {
+        background-color: #f8f8f8;
+      }
+      label {
+        padding-left: 5px;
+      }
+    }
+  }
+  & > div {
+    padding: 12px;
+    text-align: center;
+    input {
+      width: 69%;
+      height: 25px;
+      box-sizing: border-box;
+      vertical-align: top;
+      padding: 5px;
+    }
+    button {
+      height: 25px;
+      vertical-align: top;
+    }
+  }
+}

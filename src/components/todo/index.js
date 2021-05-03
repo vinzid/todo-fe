@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import styles from './index.module.scss';
 
 function Todo(props) {
   const [message, setMessage] = useState({});
@@ -29,6 +30,7 @@ function Todo(props) {
         type: 'success',
         content: 'Add success'
       });
+      title.current.value = '';
       setTimeout(() => {
         setMessage({});
       }, 1000);
@@ -42,7 +44,7 @@ function Todo(props) {
   }
 
   return (
-    <div>
+    <div className={styles.todo}>
       <p type={message.type}>{message.content ? <span role="message">{message.content}</span> : null}</p>
       <input placeholder="What to do?" ref={title} onKeyDown={handleKeyDown} /> <button onClick={addTodo}>New List</button>
     </div>

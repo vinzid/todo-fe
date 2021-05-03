@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Todo from './components/todo';
 import Subtask from './components/subtask';
+import styles from './App.module.scss';
 const be = `http://${window.location.host.replace(3000, 3001)}/`;
 
 function App() {
@@ -39,16 +40,17 @@ function App() {
   }, [])
 
   return (
-    <div>
+    <div className={styles.todoApp}>
       <h1>Todo App</h1>
       <Todo getTodo={getTodo} be={be} />
       <ul>
         {todoList.map(v => (
           <li key={v.id}>
             <dl>
-              <dt onClick={e => 'INPUT' !== e.target.tagName && showSubtask(v.id)}>
+              <dt className={extend === v.id ? styles.extend : null} onClick={e => 'INPUT' !== e.target.tagName && showSubtask(v.id)}>
                 <input name={`todo-${v.id}`} type="checkbox" checked={'completed' === v.status} onChange={updateTodo} />
-                <label>{v.title} - <span>{v.completed || 0} of {v.subtasks ? v.subtasks.length : 0} completed</span></label>
+                <label>{v.title}<span>{v.completed || 0} of {v.subtasks ? v.subtasks.length : 0} completed</span></label>
+                <span>&#x2038;</span>
               </dt>
               {extend === v.id ? <dd><Subtask todo_id={v.id} subtasks={v.subtasks} getTodo={getTodo} be={be} /></dd> : null}
             </dl>

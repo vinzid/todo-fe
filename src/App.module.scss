@@ -1,0 +1,51 @@
+.todoApp {
+  max-width: 600px;
+  margin: 0 auto;
+  h1 {
+    margin: 0;
+    padding: 20px 0;
+    text-align: center;
+  }
+  ul {
+    padding-top: 20px;
+    dl {
+      dt {
+        padding: 13px;
+        padding-right: 45px;
+        background-color: #eee;
+        border-bottom: 1px solid #ccc;
+        cursor: pointer;
+        position: relative;
+        font-size: 18px;
+        line-height: 24px;
+        &:hover {
+          background-color: #ddd;
+        }
+        label {
+          cursor: pointer;
+          padding-left: 5px;
+          span {
+            float: right;
+            font-size: 14px;
+            color: #333;
+          }
+        }
+        & > span {
+          position: absolute;
+          right: 15px;
+          top: -3px;
+          font-size: 30px;
+        }
+        &.extend > span{
+          transform: rotate(180deg);
+          top: 28px;
+        }
+        &:after {
+          content: ' ';
+          display: block;
+          clear: both;
+        }
+      }
+    }
+  }
+}
