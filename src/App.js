@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import Todo from './components/todo';
 import Subtask from './components/subtask';
 import styles from './App.module.scss';
-const be = `http://${window.location.host.replace(3000, 3001)}/`;
 
-function App() {
+function App(props) {
+  const be = props.be || `http://${window.location.host.replace(3000, 3001)}/`;
   const [todoList, setTodoList] = useState([]);
   const [extend, setExtend] = useState(0);
   const getTodo = async () => {

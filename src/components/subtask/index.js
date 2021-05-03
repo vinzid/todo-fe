@@ -73,7 +73,7 @@ function Subtask(props) {
         </ol>
       ) : null}
       <div>
-        <p type={message.type}>{message.content ? <span role="message">{message.content}</span> : null}</p>
+        <p type={message.type}>{message.content ? <span role="alert">{message.content}</span> : null}</p>
         <p><input placeholder="What are the steps?" ref={title} onKeyDown={handleKeyDown} /> <button onClick={addSubtask}>New Step</button></p>
       </div>
     </div>

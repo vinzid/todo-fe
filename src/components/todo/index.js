@@ -45,7 +45,7 @@ function Todo(props) {
 
   return (
     <div className={styles.todo}>
-      <p type={message.type}>{message.content ? <span role="message">{message.content}</span> : null}</p>
+      <p type={message.type}>{message.content ? <span role="alert">{message.content}</span> : null}</p>
       <input placeholder="What to do?" ref={title} onKeyDown={handleKeyDown} /> <button onClick={addTodo}>New List</button>
     </div>
   );
